@@ -18,5 +18,3 @@ app.use((_,res)=>{
         message:"Not found"
     })
 })
-
-app.listen(4002)
