@@ -2,10 +2,8 @@ const {bikes} = require("../../data")
 
 const deleteBIke = (req,res,next) => {
     const {id} = req.params
-    console.log(id)
 
     const idx = bikes.findIndex(({id: _id}) => _id == id)
-    console.log(idx)
 
     if (idx === -1){
         res.json({
@@ -14,11 +12,14 @@ const deleteBIke = (req,res,next) => {
             message: "Bikes not found"
         })
     }
-    bikes.slice(idx,1)
-    res.status(204).json({
+    bikes.splice(idx,1)
+
+    res.json({
         status: "success",
-        code: 204,
-        message: "Delete bike"
+        code: 200,
+        data: {
+            result:bikes
+        }
     })
 }
 module.exports = deleteBIke;
