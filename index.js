@@ -8,13 +8,13 @@ const {addBike} = jsonReader
 const api = require("./api")
 const path = require("path");
 
-const app = express()
+const index = express()
 
-app.use(cors())
+index.use(cors())
 
-app.use("/bikes", api.bikes)
+index.use("/bikes", api.bikes)
 
-app.use((_,res)=>{
+index.use((_, res)=>{
     res.status(404).json({
         status:"error",
         code: 404,
@@ -31,4 +31,4 @@ app.use((_,res)=>{
 
 // addBike(pathBikeData,newBike)
 
-app.listen(4001)
+index.listen(4001)
