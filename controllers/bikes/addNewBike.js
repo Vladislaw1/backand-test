@@ -6,7 +6,18 @@ const {bikes} = require("../../data")
 
 const addNewBike = (req,res,next) => {
         const newBike = req.body;
-        // addBike().then(res = res(newBike))
+
+        const idx = bikes.some(({id}) => id === newBike.id)
+    if (idx){
+        res.json({
+            status:"error",
+            code: 400,
+            message: "This id already exists",
+            data:{
+                result:bikes
+            }
+        })
+    }else {
         bikes.push(newBike)
         res.json({
             status:"success",
@@ -15,6 +26,7 @@ const addNewBike = (req,res,next) => {
                 result: newBike
             }
         })
+    }
 }
 
 module.exports = addNewBike;

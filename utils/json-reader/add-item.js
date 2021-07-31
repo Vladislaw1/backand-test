@@ -4,8 +4,7 @@ const path = require("path")
 
 const pathBikeData = path.join(__dirname,"data","bikes.js")
 
-const addBike = (filePath,body) => {
-    console.log(filePath)
+const addBike =async (filePath,body) => {
     try{
         const file = fs.readFile(filePath)
         const data = JSON.parse(file)
@@ -15,7 +14,7 @@ const addBike = (filePath,body) => {
         console.log(dataString)
         fs.writeFile(pathBikeData,dataString)
     }catch (e) {
-
+        console.log(e)
     }
 }
 module.exports = addBike;

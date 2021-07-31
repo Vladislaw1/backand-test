@@ -6,6 +6,7 @@ const jsonReader = require("./utils")
 const {addBike} = jsonReader
 
 const api = require("./api")
+const path = require("path");
 
 const app = express()
 
@@ -21,12 +22,13 @@ app.use((_,res)=>{
     })
 })
 
-const newBike={
-    name:" qweqw",
-    type:"adfqd",
-    id: 122
-}
+// const newBike={
+//     name:" qweqw",
+//     type:"adfqd",
+//     id: 122
+// }
+// const pathBikeData = path.join(__dirname,"data","bikes.js")
 
-addBike(newBike)
+// addBike(pathBikeData,newBike)
 
-app.listen(4002)
+app.listen(4001)
