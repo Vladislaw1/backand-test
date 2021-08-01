@@ -30,8 +30,5 @@ mongoose.connect(DB_HOST,{
     useUnifiedTopology: true,
     useCreateIndex: true
 }).then(() => {
-    app.listen(4002,()=>{
-        console.log("...server started")
-        console.log(PORT)
-    })
+    app.listen(process.env.PORT || PORT)
 })
