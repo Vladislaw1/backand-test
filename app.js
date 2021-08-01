@@ -1,25 +1,20 @@
 const express = require("express")
+const mongoose = require("mongoose")
 const cors = require("cors")
 
-const jsonReader = require("./utils")
+const dotenv = require("dotenv")
 
-const {addBike} = jsonReader
-
-const PORT = process.env.PORT || 80
+dotenv.config()
 
 const api = require("./api")
-const path = require("path");
+
+const {DB_HOST,PORT} = process.env
 
 const app = express()
 
-
 app.use(cors())
 
-app.get("/",(req,res)=>{
-    res.end(`<p>Home page</p>`)
-})
-
-app.use("/bikes", api.bikes)
+app.use("/api/v1/bikes",api.bikes)
 
 app.use((_, res)=>{
     res.status(404).json({
@@ -29,16 +24,14 @@ app.use((_, res)=>{
     })
 })
 
-// // const newBike={
-// //     name:" qweqw",
-// //     type:"adfqd",
-// //     id: 122
-// // }
-// // const pathBikeData = path.join(__dirname,"data","bikes.js")
-//
-// // addBike(pathBikeData,newBike)
-//
-app.listen(PORT,()=>{
-    console.log("...server started")
-    console.log(PORT)
+mongoose.connect(DB_HOST,{
+    useFindAndModify: false,
+    useNewUrlParser:true,
+    useUnifiedTopology: true,
+    useCreateIndex: true
+}).then(() => {
+    app.listen(4002,()=>{
+        console.log("...server started")
+        console.log(PORT)
+    })
 })

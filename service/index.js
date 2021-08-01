@@ -1,5 +1,3 @@
 const bikes = require("./bikes")
 
-module.exports = {
-    bikes
-}
+module.exports = {bikes}

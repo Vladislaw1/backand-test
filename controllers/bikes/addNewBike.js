@@ -1,31 +1,19 @@
-const {v4} = require("uuid")
+const {bikes: service} = require("../../service")
 
-// const {addBike} = require("../../utils")
-
-const {bikes} = require("../../data")
-
-const addNewBike = (req,res,next) => {
+const addNewBike = async (req, res, next) => {
+    try {
         const newBike = req.body;
 
-        const idx = bikes.some(({id}) => id === newBike.id)
-    if (idx){
-        res.json({
-            status:"error",
-            code: 400,
-            message: "This id already exists",
-            data:{
-                result:bikes
-            }
-        })
-    }else {
-        bikes.push(newBike)
-        res.json({
-            status:"success",
+        const result = await service.add(newBike)
+        res.status(201).json({
+            status: "success",
             code: 201,
-            data:{
-                result: newBike
+            data: {
+                result
             }
         })
+    } catch (e) {
+        next(e)
     }
 }
 

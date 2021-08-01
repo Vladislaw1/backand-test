@@ -1,25 +1,21 @@
-const {bikes} = require("../../data")
+const {bikes: service} = require("../../service")
 
-const deleteBIke = (req,res,next) => {
-    const {id} = req.params
+const deleteBIke = async (req, res, next) => {
+    try {
+        const {id} = req.params
+        await service.deleteBike(id)
 
-    const idx = bikes.findIndex(({id: _id}) => _id == id)
-
-    if (idx === -1){
+        const result = await service.getAll({})
+        console.log(result)
         res.json({
-            status: "error",
-            code: 404,
-            message: "Bikes not found"
+            status: "success",
+            code: 200,
+            data: {
+                result
+            }
         })
+    } catch (e) {
+        next(e)
     }
-    bikes.splice(idx,1)
-
-    res.json({
-        status: "success",
-        code: 200,
-        data: {
-            result:bikes
-        }
-    })
 }
 module.exports = deleteBIke;
