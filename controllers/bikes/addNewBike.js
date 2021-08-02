@@ -6,12 +6,12 @@ const addNewBike = async (req, res, next) => {
     try {
         const newBike = req.body;
         const {error} = bikesValidate.validate(newBike)
-        const {details} = error
+
         if (error){
             res.json({
                 status: "error",
                 code: 400,
-                message: details
+                message: error.details[0].message,
             })
         }
 

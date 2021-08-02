@@ -7,7 +7,7 @@ const bikesSchema = Joi.object({
     wheelSize: Joi.number().max(20).required(),
     id: Joi.number().max(20).required(),
     price: Joi.number().max(20).required(),
-    description: Joi.string().min(5).max(200).required()
+    description: Joi.string().min(5).max(2000).required()
 })
 
 module.exports = bikesSchema;
