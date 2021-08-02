@@ -1,0 +1,50 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\vladz\WebstormProjects\backand1\node_modules\yarn\bin\yarn.js add joi
+
+PATH: 
+  C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\vladz\bin;C:\Users\vladz\WebstormProjects\backand1\node_modules\.bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\Git\cmd;C:\Program Files\nodejs;C:\Users\vladz\AppData\Local\Microsoft\WindowsApps;C:\Users\vladz\AppData\Roaming\npm;C:\Users\vladz\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\vladz\AppData\Local\GitHubDesktop\bin;C:\Program Files\heroku\bin
+
+Yarn version: 
+  1.22.11
+
+Node version: 
+  14.17.3
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: EPERM: operation not permitted, unlink 'C:\Users\vladz\WebstormProjects\backand1\node_modules\.bin\yarn'
+
+npm manifest: 
+  {
+    "name": "backand-test",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+      "test": "echo \"Error: no test specified\" && exit 1",
+      "start": "node app.js",
+      "dev": "nodemon app"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "cors": "^2.8.5",
+      "dotenv": "^10.0.0",
+      "express": "^4.17.1",
+      "heroku": "^7.56.1",
+      "mongoose": "^5.13.5",
+      "nodemon": "^2.0.12"
+    },
+    "devDependencies": {
+      "uuid": "^8.3.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
