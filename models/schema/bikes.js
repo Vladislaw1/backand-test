@@ -1,6 +1,6 @@
 const {Schema} = require("mongoose")
 
-const bikesSchema = new Schema({
+const bikesSchema = Schema({
     id: {
        type: Number,
         unique: true
