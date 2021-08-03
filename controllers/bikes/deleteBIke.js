@@ -5,14 +5,9 @@ const deleteBIke = async (req, res, next) => {
         const {id} = req.params
         await service.deleteBike(id)
 
-        const result = await service.getAll({})
-        console.log(result)
-        res.json({
+        res.status(204).json({
             status: "success",
-            code: 200,
-            data: {
-                result
-            }
+            code: 204,
         })
     } catch (e) {
         next(e)

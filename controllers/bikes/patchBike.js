@@ -6,7 +6,6 @@ const patchBike = async (req, res, next) => {
         const status = req.body
 
         const result = await service.update(id, status)
-        console.log(result)
         res.json({
             status: "success",
             code: 200,
